@@ -1,68 +1,183 @@
-\documentclass[11pt,a4paper,sans]{moderncv}
-\moderncvstyle{banking} % Options: 'casual', 'classic', 'banking', 'oldstyle', 'fancy'
-\moderncvcolor{blue}    % Options: 'blue', 'orange', 'green', 'red', 'purple', 'grey', 'black'
+\documentclass[10pt, letterpaper]{article}
 
-\usepackage[scale=0.85]{geometry}
-\setlength{\hintscolumnwidth}{3.2cm}
+% ========== PREAMBLE ==========
+\usepackage[
+    ignoreheadfoot,
+    top=1 cm,
+    bottom=1 cm,
+    left=1 cm,
+    right=1 cm,
+    footskip=1.0 cm
+]{geometry}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{RGB}{0, 79, 144}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{amsmath}
+\usepackage[
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref}
+\usepackage[pscoord]{eso-pic}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{ifthen}
+\usepackage{needspace}
+\usepackage{iftex}
 
-\name{Rahul}{Choudhary}
-\address{Bengaluru, Karnataka, India}{}{}
-\email{rahulcy7@gmail.com}
-\phone[mobile]{+91~8791338118}
-\social[linkedin]{rhlc} % Replace with actual
-\social[github]{rhlc}       % Replace with actual
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
 
-%------------------------------------------------------------------------------
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\columnsep}{0cm}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+\titlespacing{\section}{-1pt}{0.3 cm}{0.2 cm}
+
+\renewcommand\labelitemi{$\circ$}
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0.5 cm
+    ]
+}{
+    \end{itemize}
+}
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{0.2 cm}{0.2 cm}
+}{
+    \end{adjustwidth}
+}
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+% ========== DOCUMENT ==========
 \begin{document}
 
-\makecvtitle
+% ----- HEADER -----
+\begin{center}
+    {\fontsize{20pt}{20pt}\selectfont \textbf{Rahul C}}\\
+    \vspace{0.15cm}
+    {\faMapMarker*~Bengaluru, India \quad|\quad
+     \href{mailto:rahulcy7@gmail.com}{\faEnvelope[regular]~rahulcy7@gmail.com} \quad|\quad
+     \faPhone*~+91-8791338118 \quad|\quad
+     \href{https://linkedin.com/in/rhlc}{\faLinkedinIn~rhlc} \quad|\quad
+     \href{https://github.com/rhlc}{\faGithub~rhlc}}
+\end{center}
 
-%------------------------------------------------------------------------------
+% ----- SKILLS -----
 \section{Skills}
-\cvitem{\textbf{Frontend}}{React.js, Redux, TypeScript, HTML5/CSS3, Sass, Responsive Design}
-\cvitem{\textbf{Backend}}{Node.js, Go (Golang), GraphQL, REST API development}
-\cvitem{\textbf{DevOps}}{Google Cloud, DigitalOcean, Docker, CI/CD with GCP Services, AWS Cloud Services (Lambda serverless, SQS, SNS, SES, DynamoDB, CloudWatch)}
-\cvitem{\textbf{Blockchain}}{Solidity, Web3.js, Polygon, MetaMask}
-\cvitem{\textbf{Tools}}{Git, Jira, Stripe}
+\begin{onecolentry}
+\textbf{Frontend:} HTML, CSS, JavaScript (ES6+), TypeScript, React.js, Redux, Context API, Next.js, Sass/SCSS, Tailwind CSS \\
+\textbf{Backend:} Node.js, Express.js, Golang, GraphQL, REST APIs, SQL, MongoDB \\
+\textbf{Testing:} Jest, Cypress, Mocha \\
+\textbf{DevOps & Cloud:} Google Cloud Platform (Firestore, App Engine, Compute Engine, Cloud Run), AWS (S3, EC2, Lambda, CloudFront), Docker, GitHub Actions \\
+\textbf{Blockchain:} Ethereum, Solidity, Web3.js, Polygon, MetaMask, Hardhat \\
+\textbf{Tools & Others:} Git, GitHub, Jira, Stripe, Figma, Postman \\
+\textbf{Soft Skills:} Team Leadership, Mentoring, Problem Solving, Collaboration, Time Management
+\end{onecolentry}
 
-%------------------------------------------------------------------------------
+
+% ----- EXPERIENCE -----
 \section{Experience}
 
-\cventry{Aug 2023 -- Aug 2025}{SDE II}{Coreyo (Logistics Tech)}{Bengaluru, India}{}{
-\begin{itemize}
-  \item Led a team of 5+ engineers, implementing Agile methodologies to improve sprint velocity.
-  \item Migrated legacy APIs to Go, improving response times from 500ms to 50ms (10x performance boost).
-  \item Optimized resource allocation, reducing project delivery timelines by a minimum of 50\%.
-  \item Modernized frontend architecture using React+TypeScript, cutting bug reports by at least 50\%.
-\end{itemize}}
+\begin{twocolentry}{\textit{Aug 2023 -- Aug 2025}}
+    \textbf{SDE II} \\
+    \textit{Coreyo (Logistics Tech) — Bengaluru, India}
+\end{twocolentry}
+\begin{onecolentry}
+\begin{highlights}
+    \item Coreyo was a logistics tech company that aggregates multiple logistics providers to provide a single platform for booking and managing shipments.
+    \item Led the frontend team to improve overall productivity and code quality, while reviewing pull requests and mentoring junior developers
+    \item Migrated APIs from Nest.js (JavaScript) to Golang, this improved performance by 10x while reducing server costs drastically.
+    \item Significantly reduced turnaround time for bug fixes by increasing team ownership and taking several productivity measures. 
+    \item Modernized frontend codebase with modern React practices, improving maintainability and performance.
+    \item Redesigned user journeys for key features to reduce friction as well number of steps while booking orders. 
+\end{highlights}
+\end{onecolentry}
 
-\cventry{Apr 2022 -- Aug 2023}{Full Stack Developer}{Neon Sundae (Web3 Platform)}{Remote}{}{
-\begin{itemize}
-  \item Developed Solidity smart contracts for NFT minting on Polygon.
-  \item Engineered a React+MetaMask integration, enhancing blockchain transactions by 30\%.
-  \item Managed Google Cloud infrastructure.
-  \item Presented at Web3 conferences, expanding community engagement.
-\end{itemize}}
+\vspace{0.2cm}
 
-\cventry{Oct 2020 -- Mar 2022}{Software Engineer}{Blur Social (Social Media)}{Remote}{}{
-\begin{itemize}
-  \item Implemented JWT authentication system.
-  \item Integrated Stripe payments, generating revenue.
-  \item Developed core engagement features (likes/comments), leading to a significant increase in daily active users.
-\end{itemize}}
+\begin{twocolentry}{\textit{Apr 2022 -- Aug 2023}}
+    \textbf{Full Stack Developer} \\
+    \textit{\href{https://app.neonsundae.xyz/}{Neon Sundae} (Web3 Platform) — Remote}
+\end{twocolentry}
+\begin{onecolentry}
+\begin{highlights}
+    \item Neon Sundae is a decentralized platform for Web3 communities, designed to provide a transparent freelance marketplace.
+    \item Built Solidity smart contracts for NFT minting and airdropping on a EVM blockchain (Polygon).
+    \item Integrated ReactJS and MetaMask, learned how web3 wallets function.
+    \item Managed Google Cloud infrastructure for scalability and CI/CD.
+    \item Spoke at Web3 conferences, increasing community engagement.
+\end{highlights}
+\end{onecolentry}
 
-\cventry{Sep 2020 -- Apr 2022}{Full Stack Developer}{Outofbox (IT Services)}{Remote}{}{
-\begin{itemize}
-  \item Delivered 10+ responsive web landing pages using modern CSS layouts.
-  \item Improved client satisfaction through enhanced communication.
-\end{itemize}}
+\vspace{0.2cm}
 
-%------------------------------------------------------------------------------
+\begin{twocolentry}{\textit{Oct 2020 -- Mar 2022}}
+    \textbf{Software Engineer} \\
+    \textit{Blur Social — Remote}
+\end{twocolentry}
+\begin{onecolentry}
+\begin{highlights}
+    \item Blur Social was a social media platform that allows users to share and discover content.
+    \item Implemented JSON based token authentication and Stripe payment integration with subscription based pricing model.
+    \item Built social engagement features (likes, comments) to improve daily active users.
+    \item App gained some traction with say 20 active users and around 90 registered users. 
+\end{highlights}
+\end{onecolentry}
+
+\vspace{0.2cm}
+
+\begin{twocolentry}{\textit{Sep 2020 -- Apr 2022}}
+    \textbf{Full Stack Developer} \\
+    \textit{\href{https://outofbox.co}{Outofbox}  (IT Services) — Remote}
+\end{twocolentry}
+\begin{onecolentry}
+\begin{highlights}
+    \item Outofbox is a web development and design agency.
+    \item Delivered several responsive landing pages with modern CSS layouts.
+    \item Improved client satisfaction through proactive communication.
+\end{highlights}
+\end{onecolentry}
+
+% ----- EDUCATION -----
 \section{Education}
-\cventry{2012 -- 2015}{B.Tech in Computer Science}{Graphic Era Hill University}{}{}{}
+\begin{twocolentry}{\textit{2012 -- 2015}}
+    \textbf{B.Tech in Computer Science} \\
+    \textit{Graphic Era Hill University — Dehradun, India}
+\end{twocolentry}
 
-%------------------------------------------------------------------------------
+% ----- AWARDS -----
 \section{Awards}
-\cvitem{2006}{Ranked in the top 1\% of state-level International Assessments (Uttarakhand).}
+\begin{onecolentry}
+\begin{highlights}
+    \item Topped in International-level computer olympiad (Uttarakhand, 2006).
+\end{highlights}
+\end{onecolentry}
 
 \end{document}
