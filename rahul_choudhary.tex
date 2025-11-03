@@ -1,183 +1,106 @@
-\documentclass[10pt, letterpaper]{article}
+\documentclass[11pt, letterpaper]{article}
 
-% ========== PREAMBLE ==========
-\usepackage[
-    ignoreheadfoot,
-    top=1 cm,
-    bottom=1 cm,
-    left=1 cm,
-    right=1 cm,
-    footskip=1.0 cm
-]{geometry}
-\usepackage{titlesec}
-\usepackage{tabularx}
-\usepackage{array}
-\usepackage[dvipsnames]{xcolor}
-\definecolor{primaryColor}{RGB}{0, 79, 144}
+% ===== PREAMBLE =====
+\usepackage[margin=0.60in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[scaled]{helvet}
+\renewcommand{\familydefault}{\sfdefault} % Use Helvetica globally
+
+\usepackage{hyperref}
 \usepackage{enumitem}
-\usepackage{fontawesome5}
-\usepackage{amsmath}
-\usepackage[
-    colorlinks=true,
-    urlcolor=primaryColor
-]{hyperref}
-\usepackage[pscoord]{eso-pic}
-\usepackage{calc}
-\usepackage{bookmark}
-\usepackage{lastpage}
-\usepackage{changepage}
-\usepackage{paracol}
-\usepackage{ifthen}
-\usepackage{needspace}
-\usepackage{iftex}
+\usepackage{xcolor}
+\usepackage{titlesec}
 
-\ifPDFTeX
-    \input{glyphtounicode}
-    \pdfgentounicode=1
-    \usepackage[utf8]{inputenc}
-    \usepackage{lmodern}
-\fi
-
-\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
-\pagestyle{empty}
-\setcounter{secnumdepth}{0}
+% ===== CLEAN STYLING =====
 \setlength{\parindent}{0pt}
-\setlength{\columnsep}{0cm}
+\setlength{\parskip}{2pt}
+\setlist[itemize]{noitemsep, topsep=2pt, leftmargin=1.2em}
 
-\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
-\titlespacing{\section}{-1pt}{0.3 cm}{0.2 cm}
+% Section formatting
+\titleformat{\section}
+  {\large\bfseries\uppercase}{\thesection}{0.5em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{6pt}{4pt}
 
-\renewcommand\labelitemi{$\circ$}
-\newenvironment{highlights}{
-    \begin{itemize}[
-        topsep=0.10 cm,
-        parsep=0.10 cm,
-        partopsep=0pt,
-        itemsep=0pt,
-        leftmargin=0.5 cm
-    ]
-}{
-    \end{itemize}
-}
-\newenvironment{onecolentry}{
-    \begin{adjustwidth}{0.2 cm}{0.2 cm}
-}{
-    \end{adjustwidth}
-}
-\newenvironment{twocolentry}[2][]{
-    \onecolentry
-    \def\secondColumn{#2}
-    \setcolumnwidth{\fill, 4.5 cm}
-    \begin{paracol}{2}
-}{
-    \switchcolumn \raggedleft \secondColumn
-    \end{paracol}
-    \endonecolentry
+% Hyperlink setup (black for print, subtle blue for screen)
+\hypersetup{
+    colorlinks=true,
+    urlcolor=blue!50!black,
+    linkcolor=black
 }
 
-% ========== DOCUMENT ==========
+% ===== DOCUMENT =====
 \begin{document}
 
-% ----- HEADER -----
+% ===== HEADER =====
 \begin{center}
-    {\fontsize{20pt}{20pt}\selectfont \textbf{Rahul C}}\\
-    \vspace{0.15cm}
-    {\faMapMarker*~Bengaluru, India \quad|\quad
-     \href{mailto:rahulcy7@gmail.com}{\faEnvelope[regular]~rahulcy7@gmail.com} \quad|\quad
-     \faPhone*~+91-8791338118 \quad|\quad
-     \href{https://linkedin.com/in/rhlc}{\faLinkedinIn~rhlc} \quad|\quad
-     \href{https://github.com/rhlc}{\faGithub~rhlc}}
+    {\LARGE \textbf{Rahul C}} \\[4pt]
+    Bengaluru, India • 
+    \href{mailto:rahulcy7@gmail.com}{rahulcy7@gmail.com} • 
+    \href{tel:+918791338118}{87913 38118} • 
+    \href{https://linkedin.com/in/rhlc}{linkedin.com/in/rhlc}
 \end{center}
 
-% ----- SKILLS -----
-\section{Skills}
-\begin{onecolentry}
-\textbf{Frontend:} HTML, CSS, JavaScript (ES6+), TypeScript, React.js, Redux, Next.js, Sass/SCSS, Tailwind CSS \\
-\textbf{Backend:} Node.js, Express.js, Go, GraphQL, MySQL, PostgreSQL, MongoDB \\
-\textbf{Testing:} Jest, Cypress, Mocha \\
-\textbf{DevOps \& Cloud:} Google Cloud Platform (Firestore, App Engine, Compute Engine, Cloud Run), AWS (S3, EC2, Lambda), Docker, GitHub Actions \\
-\textbf{Blockchain:} Ethereum, Solidity, Web3.js, Polygon, MetaMask, Hardhat \\
-\textbf{Tools \& Others:} Git, GitHub, Jira, Stripe, Figma, Postman \\
-\textbf{Soft Skills:} Team Leadership, Mentoring, Problem-Solving, Collaboration, Time Management
-\end{onecolentry}
+\vspace{7pt}
 
-% ----- EXPERIENCE -----
-\section{Experience}
+% ===== SUMMARY =====
+\section*{Summary}
+Full-stack engineer with 5 years of experience, building scalable web, blockchain products from 0 to 1. Hands-on with React, Node.js, and cloud deployments. Thrive in fast-paced startup environments — shipping production-ready features quickly, owning systems end-to-end.
 
-\begin{twocolentry}{\textit{Aug 2023 -- Aug 2025}}
-    \textbf{SDE II} \\
-    \textit{Coreyo (Logistics Tech) — Bengaluru, India}
-\end{twocolentry}
-\begin{onecolentry}
-\begin{highlights}
-    \item Coreyo is a logistics technology company that aggregates multiple logistics providers to provide a single platform.
-    \item Led the frontend team to improve productivity and code quality, reviewing pull requests and mentoring junior developers.
-    \item Migrated APIs from Nest.js (JavaScript) to Go, improving performance by 10× and reducing server costs drastically.
-    \item Significantly reduced turnaround time for bug fixes by increasing team ownership and implementing productivity measures.
-    \item Revamped the frontend codebase with modern React practices, improving maintainability and performance.
-    \item Redesigned user journeys for key features to reduce friction as well as the number of steps required for booking orders.
-\end{highlights}
-\end{onecolentry}
+% ===== CORE SKILLS =====
+\section*{Core Skills}
+\textbf{Frontend:} React, Next.js, TypeScript, Redux Toolkit, Tailwind CSS \\
+\textbf{Backend:} Node.js, Express, PostgreSQL, MongoDB \\
+\textbf{Cloud/DevOps:} Docker, GitHub Actions, GCP (Cloud Run, Firestore), AWS (Lambda, S3) \\
+\textbf{Blockchain:} Solidity, Web3.js, Hardhat, MetaMask \\
+\textbf{Other:} Jest, REST APIs, Product Iteration, Agile Development
 
-\vspace{0.2cm}
+% ===== EXPERIENCE =====
+\section*{Experience}
 
-\begin{twocolentry}{\textit{May 2022 -- Aug 2023}}
-    \textbf{Full Stack Developer} \\
-    \textit{\href{https://app.neonsundae.xyz}{Neon Sundae} — Remote}
-\end{twocolentry}
-\begin{onecolentry}
-\begin{highlights}
-    \item Neon Sundae is a decentralized platform for Web3 communities, designed to provide a transparent freelance marketplace.
-    \item Built Solidity smart contracts for NFT minting and airdropping on an EVM blockchain (Polygon).
-    \item Integrated ReactJS and MetaMask, gaining an in-depth understanding of how Web3 wallets function.
-    \item Managed Google Cloud infrastructure for scalability and CI/CD.
-    \item Spoke at Web3 event, increasing community engagement.
-\end{highlights}
-\end{onecolentry}
+\textbf{SDE II — Coreyo (Logistics Tech)} \hfill \textit{Aug 2023 -- Aug 2025} \\
+\textit{Bengaluru, India -- Onsite}
+\begin{itemize}
+    \item A logistics technology company that aggregated multiple logistics providers on a single platform
+    \item Migrated core services from NestJS to Go — achieving 10× performance improvement and significant cost reduction
+    \item Revamped the entire frontend in React with modular components, improved state management
+    \item Developed internal tools that reduced debugging and deployment time by 50\%
+\end{itemize}
 
-\vspace{0.2cm}
+\textbf{Full Stack Developer — Neon Sundae (via Inovatyv)} \hfill \textit{May 2022 -- Aug 2023} \\
+\textit{Singapore -- Remote}
+\begin{itemize}
+    \item Built a decentralized platform for Web3 communities — a transparent freelance marketplace
+    \item Developed NFT minting and airdrop smart contracts on Polygon and integrated them with a React-based Web3 dashboard
+    \item Built CI/CD pipelines and scaled Google Cloud infrastructure for production workloads
+    \item Engaged with Web3 community events and assisted in user onboarding for decentralized applications
+\end{itemize}
 
-\begin{twocolentry}{\textit{Apr 2022 -- Aug 2023}}
-    \textbf{Full Stack Developer} \\
-    \textit{\href{https://www.inovatyv.com}{Inovatyv} (IT Services) — Remote}
-\end{twocolentry}
+\textbf{Inovatyv} \hfill \textit{May 2022 -- Aug 2023} \\
+\textit{Singapore -- Remote}
+ 
+\textbf{Software Engineer — Blur Social (via Outofbox)} \hfill \textit{Oct 2020 -- Mar 2022} \\
+\textit{California, US -- Remote}
+\begin{itemize}
+    \item Built social engagement features (likes, comments), integrated Stripe payments for premium users
+    \item Refactored backend authentication to reduce downtime, improve API response times
+\end{itemize}
 
+\textbf{Full Stack Developer — Outofbox (IT Services)} \hfill \textit{Sep 2020 -- Mar 2022} \\
+\textit{Bengaluru, IN -- Remote}
+\begin{itemize}
+    \item Converted UI/UX mockups (Figma, XD) into production-ready code with clean, reusable components
+    \item Delivered full-stack web applications for client startups, managing backend APIs, frontend development
+\end{itemize}
 
-\vspace{0.2cm}
+% ===== EDUCATION =====
+\section*{Education}
+\textbf{B.Tech in Computer Science} \hfill \textit{2012 -- 2016} \\
+Graphic Era Hill University — Bhimtal, Uttarakhand, India
 
-\begin{twocolentry}{\textit{Oct 2020 -- Mar 2022}}
-    \textbf{Software Engineer} \\
-    \textit{Blur Social — Remote}
-\end{twocolentry}
-\begin{onecolentry}
-\begin{highlights}
-    \item Blur Social was a social media platform that allowed users to share and discover content.
-    \item Implemented JSON-based token authentication and Stripe payment integration with a subscription-based pricing model.
-    \item Built social engagement features (likes, comments) to improve daily active user metrics.
-    \item The app gained modest traction with around 20 active users and approximately 90 registered users.
-\end{highlights}
-\end{onecolentry}
-
-\vspace{0.2cm}
-
-\begin{twocolentry}{\textit{Sep 2020 -- Mar 2022}}
-    \textbf{Full Stack Developer} \\
-    \textit{\href{https://outofbox.co}{Outofbox} (IT Services) — Remote}
-\end{twocolentry}
-
-% ----- EDUCATION -----
-\section{Education}
-\begin{twocolentry}{\textit{2012 -- 2015}}
-    \textbf{B.Tech in Computer Science} \\
-    \textit{Graphic Era Hill University — Dehradun, India}
-\end{twocolentry}
-
-% ----- AWARDS -----
-\section{Awards}
-\begin{onecolentry}
-\begin{highlights}
-    \item Secured first place in an international-level computer olympiad (Uttarakhand, India — 2006).
-\end{highlights}
-\end{onecolentry}
+% ===== ACHIEVEMENTS =====
+\section*{Achievements}
+\begin{itemize}
+    \item First place — International-level Computer Olympiad (Uttarakhand, 2006)
+\end{itemize}
 
 \end{document}
