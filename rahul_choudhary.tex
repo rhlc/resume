@@ -1,95 +1,99 @@
 \documentclass[11pt, letterpaper]{article}
 
 % ===== PREAMBLE =====
-\usepackage[margin=0.60in]{geometry}
+\usepackage[margin=0.6in]{geometry}
 \usepackage[T1]{fontenc}
-\usepackage[scaled]{helvet}
-\renewcommand{\familydefault}{\sfdefault} % Use Helvetica globally
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault} % Modern sans-serif font
 
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 \usepackage{enumitem}
 \usepackage{xcolor}
 \usepackage{titlesec}
+\usepackage{tabularx}
 
-% ===== CLEAN STYLING =====
+% ===== COLORS =====
+\definecolor{primary}{HTML}{1A73E8}   % Google blue
+\definecolor{textgray}{HTML}{555555}
+\definecolor{lightgray}{HTML}{999999}
+
+% ===== GLOBAL STYLING =====
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{2pt}
-\setlist[itemize]{noitemsep, topsep=2pt, leftmargin=1.2em}
+\setlength{\parskip}{4pt}
+\setlist[itemize]{noitemsep, topsep=3pt, leftmargin=1em}
 
-% Section formatting
-\titleformat{\section}
-  {\large\bfseries\uppercase}{\thesection}{0.5em}{}[\titlerule]
-\titlespacing*{\section}{0pt}{6pt}{4pt}
-
-% Hyperlink setup (black for print, subtle blue for screen)
 \hypersetup{
     colorlinks=true,
-    urlcolor=blue!50!black,
-    linkcolor=black
+    urlcolor=primary,
+    linkcolor=primary
 }
+
+% ===== SECTION STYLE =====
+\titleformat{\section}
+  {\bfseries\Large\color{primary}}{}{0em}{}
+\titlespacing*{\section}{0pt}{10pt plus 2pt minus 2pt}{4pt}
+
+% ===== CUSTOM COMMANDS =====
+\newcommand{\role}[2]{\textbf{#1} \hfill \textit{#2}}
+\newcommand{\company}[2]{\textcolor{textgray}{#1} \hfill \textcolor{lightgray}{#2}}
 
 % ===== DOCUMENT =====
 \begin{document}
 
 % ===== HEADER =====
 \begin{center}
-    {\LARGE \textbf{Rahul C}} \\[4pt]
-    Bengaluru, India • 
+    {\Huge \textbf{Rahul C}} \\[4pt]
+    \textcolor{textgray}{Bengaluru, India • 
     \href{mailto:rahulcy7@gmail.com}{rahulcy7@gmail.com} • 
     \href{tel:+918791338118}{87913 38118} • 
-    \href{https://linkedin.com/in/rhlc}{linkedin.com/in/rhlc}
+    \href{https://linkedin.com/in/rhlc}{linkedin.com/in/rhlc}}
 \end{center}
 
-\vspace{7pt}
+\vspace{8pt}
 
-% ===== SUMMARY =====
-\section*{Summary}
-Full-stack engineer with 5 years of experience, building scalable web, blockchain products from 0 to 1. Hands-on with React, Node.js, and cloud deployments. Thrive in fast-paced startup environments — shipping production-ready features quickly, owning systems end-to-end.
-
-% ===== CORE SKILLS =====
+% ===== SKILLS =====
 \section*{Core Skills}
-\textbf{Frontend:} React, Next.js, TypeScript, Redux Toolkit, Tailwind CSS \\
-\textbf{Backend:} Node.js, Express, PostgreSQL, MongoDB \\
-\textbf{Cloud/DevOps:} Docker, GitHub Actions, GCP (Cloud Run, Firestore), AWS (Lambda, S3) \\
-\textbf{Blockchain:} Solidity, Web3.js, Hardhat, MetaMask \\
-\textbf{Other:} Jest, REST APIs, Product Iteration, Agile Development
+\begin{tabularx}{\textwidth}{@{}lX@{}}
+\textbf{Frontend:} & JavaScript, React (TypeScript), Redux Toolkit, Sass \\
+\textbf{Backend:} & Node.js, Express, PostgreSQL, REST API development \\
+\textbf{Cloud/DevOps:} & GitHub Actions, GCP (Cloud Run, Firestore), AWS (Lambda, S3) \\
+\textbf{Others:} & Git, Jest, Smart Contracts (Solidity)
+\end{tabularx}
 
 % ===== EXPERIENCE =====
 \section*{Experience}
 
-\textbf{SDE II — Coreyo (Logistics Tech)} \hfill \textit{Aug 2023 -- Aug 2025} \\
-\textit{Bengaluru, India -- Onsite}
+\role{SDE II — Coreyo (Logistics Tech)}{Aug 2023 -- Aug 2025}\\
+\company{Bengaluru, India — Onsite}{}
 \begin{itemize}
-    \item A logistics technology company that aggregated multiple logistics providers on a single platform
-    \item Migrated core services from NestJS to Go — achieving 10× performance improvement and significant cost reduction
-    \item Revamped the entire frontend in React with modular components, improved state management
-    \item Developed internal tools that reduced debugging and deployment time by 50\%
+    \item Migrated core backend from NestJS to Go — improved performance and reduced server costs
+    \item Redid monolithic API backend into microservices
+    \item Rebuilt frontend in React with modular components and efficient Redux state management
+    \item Put CI/CD pipelines in place (GitHub Actions) to automate frontend deployments 
 \end{itemize}
 
-\textbf{Full Stack Developer — Neon Sundae (via Inovatyv)} \hfill \textit{May 2022 -- Aug 2023} \\
-\textit{Singapore -- Remote}
+\role{Full Stack Developer — Neon Sundae (via Inovatyv)}{May 2022 -- Aug 2023}\\
+\company{Singapore — Remote}{}
 \begin{itemize}
-    \item Built a decentralized platform for Web3 communities — a transparent freelance marketplace
-    \item Developed NFT minting and airdrop smart contracts on Polygon and integrated them with a React-based Web3 dashboard
-    \item Built CI/CD pipelines and scaled Google Cloud infrastructure for production workloads
-    \item Engaged with Web3 community events and assisted in user onboarding for decentralized applications
+    \item Built decentralized freelance marketplace for Web3 communities on blockchain (Polygon)
+    \item Developed NFT minting + airdrop contracts integrated with a React Web3 user interface
+    \item Implemented UI/UX for user onboarding, wallet connection, payment processing features
 \end{itemize}
 
-\textbf{Inovatyv} \hfill \textit{May 2022 -- Aug 2023} \\
-\textit{Singapore -- Remote}
- 
-\textbf{Software Engineer — Blur Social (via Outofbox)} \hfill \textit{Oct 2020 -- Mar 2022} \\
-\textit{California, US -- Remote}
+\role{Software Engineer — Blur Social (via Outofbox)}{Oct 2020 -- Mar 2022}\\
+\company{California, US — Remote}{}
 \begin{itemize}
-    \item Built social engagement features (likes, comments), integrated Stripe payments for premium users
-    \item Refactored backend authentication to reduce downtime, improve API response times
+    \item Built social engagement features (likes, comments), integrated Stripe (subscription tier) for premium users
+    \item Optimized authentication backend, improving API response and reducing downtime
+    \item Implemented infinite scrolling, user profile management features
 \end{itemize}
 
-\textbf{Full Stack Developer — Outofbox (IT Services)} \hfill \textit{Sep 2020 -- Mar 2022} \\
-\textit{Bengaluru, IN -- Remote}
+\role{Full Stack Developer — Outofbox (IT Services)}{Sep 2020 -- Mar 2022}\\
+\company{Bengaluru, India — Remote}{}
 \begin{itemize}
-    \item Converted UI/UX mockups (Figma, XD) into production-ready code with clean, reusable components
-    \item Delivered full-stack web applications for client startups, managing backend APIs, frontend development
+    \item Converted UI/UX mockups (Figma, XD) into clean, pixel perfect React components
+    \item Delivered full-stack web apps managing both frontend UI and backend APIs
+    \item Collaborated with cross-functional remote teams to gather requirements and deliver solutions on time
 \end{itemize}
 
 % ===== EDUCATION =====
@@ -100,7 +104,7 @@ Graphic Era Hill University — Bhimtal, Uttarakhand, India
 % ===== ACHIEVEMENTS =====
 \section*{Achievements}
 \begin{itemize}
-    \item First place — International-level Computer Olympiad (Uttarakhand, 2006)
+    \item 1st Place — International-level Computer Olympiad, Uttarakhand (2006)
 \end{itemize}
 
 \end{document}
